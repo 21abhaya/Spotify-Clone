@@ -33,3 +33,15 @@ masterPlay.addEventListener('click', ()=>{
         gif.style.opacity=1;
     }
 })
+
+//Listen to events
+audioElement.addEventListener("timeupdate", ()=>{
+    //Update seekbar
+    progress=parseInt((audioElement.currentTime/audioElement.duration)*100);
+    myProgressBar.value = progress;
+})
+
+//User update seekbar
+myProgressBar.addEventListener("change", ()=>{
+    audioElement.currentTime = (myProgressBar.value * audioElement.duration)/100;
+})
